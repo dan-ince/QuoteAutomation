@@ -1,0 +1,16 @@
+   runtime: python312  # or python311 depending on your Python version
+   entrypoint: gunicorn -b :$PORT app:app
+
+   handlers:
+     - url: /static
+       static_dir: static
+
+     - url: /uploads
+       static_dir: uploads
+
+     - url: /.*
+       script: auto
+
+   env_variables:
+     SECRET_KEY: 'your_secure_secret_key'
+     UPLOAD_FOLDER: 'uploads/'

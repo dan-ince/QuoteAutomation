@@ -3,12 +3,9 @@ from werkzeug.utils import secure_filename
 import os
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Replace with a secure key
-app.config['UPLOAD_FOLDER'] = 'uploads/'
+app.secret_key = os.environ.get('SECRET_KEY', 'your_default_secret_key')
+app.config['UPLOAD_FOLDER'] = os.environ.get('UPLOAD_FOLDER', 'uploads/')
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB upload limit
-
-# Ensure upload directory exists
-os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 @app.route('/')
 def index():
@@ -18,7 +15,7 @@ def index():
 def job_notes():
     if request.method == 'POST':
         job_notes = request.form.get('job_notes')
-        # Here, you would typically save the job_notes to a database
+        # Process the form data received
         print('Submitting job notes:', job_notes)
         flash('Job notes submitted successfully!', 'success')
         return redirect(url_for('job_notes'))
@@ -28,7 +25,6 @@ def job_notes():
 def house_details():
     if request.method == 'POST':
         # Handle form submission for house details
-        # Example: address, size, etc.
         flash('House details submitted successfully!', 'success')
         return redirect(url_for('house_details'))
     return render_template('house_details.html')
@@ -36,7 +32,6 @@ def house_details():
 @app.route('/cosy-glazing-quotation', methods=['GET', 'POST'])
 def cosy_glazing_quotation():
     if request.method == 'POST':
-        # Handle submission of Cosy Glazing Quotation
         # Process the form data received
         flash('Cosy Glazing Quotation submitted successfully!', 'success')
         return redirect(url_for('cosy_glazing_quotation'))
@@ -102,10 +97,9 @@ def documents():
             return redirect(request.url)
         if file:
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             flash('Document uploaded successfully!', 'success')
             return redirect(url_for('documents'))
     return render_template('documents.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=False)

@@ -2,11 +2,28 @@
 
 {% block content %}
 <div class="loft-insulation">
-    <h2>Loft Insulation</h2>
+    <h2 class="mb-4">Loft Insulation</h2>
     <form method="POST" action="{{ url_for('loft_insulation') }}">
-        <!-- Add your form fields here -->
-        <p>Loft Insulation form goes here.</p>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="mb-3">
+            <label for="insulation_type" class="form-label">Type of Insulation</label>
+            <select class="form-select" id="insulation_type" name="insulation_type" required>
+                <option value="" selected disabled>Select Type</option>
+                <option value="Fiberglass">Fiberglass</option>
+                <option value="Cellulose">Cellulose</option>
+                <option value="Spray Foam">Spray Foam</option>
+                <option value="Rigid Foam">Rigid Foam</option>
+                <option value="Mineral Wool">Mineral Wool</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="thickness" class="form-label">Thickness (in inches)</label>
+            <input type="number" class="form-control" id="thickness" name="thickness" min="1" max="12" required>
+        </div>
+        <div class="mb-3">
+            <label for="area" class="form-label">Insulation Area (sq ft)</label>
+            <input type="number" class="form-control" id="area" name="area" min="100" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Submit</button>
     </form>
 </div>
 {% endblock %}

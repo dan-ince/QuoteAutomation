@@ -1,9 +1,94 @@
 body {
     padding-top: 70px;
+    padding-bottom: 20px;
+    background-color: #f8f9fa;
 }
 
-.footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+/* Optimize Navbar for Better Visibility */
+.navbar-brand {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/* Enhance Form Controls */
+form .form-control,
+form .form-select {
+    height: 45px;
+    font-size: 1rem;
+}
+
+/* Style Buttons for Touch */
+.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+/* Table Styling for Mobile */
+.table th,
+.table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Add some margin to bottom of containers */
+.container {
+    margin-bottom: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .d-flex.justify-content-between {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* Add a subtle tap effect on buttons */
+.btn:active {
+    transform: scale(0.98);
+    transition: transform 0.1s;
+}
+
+/* Category Card Styling */
+.category-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.category-card .card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.category-card .card-text {
+    font-size: 0.95rem;
+    color: #6c757d;
+}
+
+/* Remove some padding for smaller screens */
+@media (max-width: 576px) {
+    .category-card .card-body {
+        padding: 20px 10px;
+    }
 }

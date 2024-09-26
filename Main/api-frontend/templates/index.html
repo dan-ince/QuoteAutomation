@@ -1,10 +1,115 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="jumbotron">
-    <h1 class="display-4">Welcome to the Mitchell&Dickinson Quote Generator</h1>
-    <p class="lead">Select a category from the navigation bar to get started.</p>
-    <hr class="my-4">
-    <p>Use the Categories dropdown to navigate through different sections or visit the Documents tab.</p>
+<div class="category-dashboard">
+    <div class="row g-4">
+        <!-- Job Notes -->
+        <div class="col-12 col-sm-6 col-md-4">
+            <a href="{{ url_for('job_notes') }}" class="text-decoration-none">
+                <div class="card category-card h-100 text-center">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h5 class="card-title">Job Notes</h5>
+                        <p class="card-text">Input and manage job-related notes.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <!-- House Details -->
+        <div class="col-12 col-sm-6 col-md-4">
+            <a href="{{ url_for('house_details') }}" class="text-decoration-none">
+                <div class="card category-card h-100 text-center">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h5 class="card-title">House Details</h5>
+                        <p class="card-text">Enter and update house-specific information.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Cosy Glazing Quotation -->
+        <div class="col-12 col-sm-6 col-md-4">
+            <a href="{{ url_for('cosy_glazing_quotation') }}" class="text-decoration-none">
+                <div class="card category-card h-100 text-center">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h5 class="card-title">Cosy Glazing Quotation</h5>
+                        <p class="card-text">Generate quotations for cosy glazing projects.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Draughts Quotation -->
+        <div class="col-12 col-sm-6 col-md-4">
+            <a href="{{ url_for('draughts_quotation') }}" class="text-decoration-none">
+                <div class="card category-card h-100 text-center">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h5 class="card-title">Draughts Quotation</h5>
+                        <p class="card-text">Create quotations for draught-proofing.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Restoration Work -->
+        <div class="col-12 col-sm-6 col-md-4">
+            <a href="{{ url_for('restoration_work') }}" class="text-decoration-none">
+                <div class="card category-card h-100 text-center">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h5 class="card-title">Restoration Work</h5>
+                        <p class="card-text">Manage restoration project details.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Loft Insulation -->
+        <div class="col-12 col-sm-6 col-md-4">
+            <a href="{{ url_for('loft_insulation') }}" class="text-decoration-none">
+                <div class="card category-card h-100 text-center">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h5 class="card-title">Loft Insulation</h5>
+                        <p class="card-text">Input insulation specifications and measurements.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Loft Flooring -->
+        <div class="col-12 col-sm-6 col-md-4">
+            <a href="{{ url_for('loft_flooring') }}" class="text-decoration-none">
+                <div class="card category-card h-100 text-center">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h5 class="card-title">Loft Flooring</h5>
+                        <p class="card-text">Manage loft flooring project details.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Room in Roof -->
+        <div class="col-12 col-sm-6 col-md-4">
+            <a href="{{ url_for('room_in_roof') }}" class="text-decoration-none">
+                <div class="card category-card h-100 text-center">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h5 class="card-title">Room in Roof</h5>
+                        <p class="card-text">Detail room-in-roof project specifications.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Other -->
+        <div class="col-12 col-sm-6 col-md-4">
+            <a href="{{ url_for('other') }}" class="text-decoration-none">
+                <div class="card category-card h-100 text-center">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h5 class="card-title">Other</h5>
+                        <p class="card-text">Access additional tools and features.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
 </div>
 {% endblock %}
